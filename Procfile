@@ -1,1 +1,1 @@
-web: gunicorn marvel_flask:app
+web: gunicorn main:app
