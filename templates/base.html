@@ -2,22 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
     <title>Title</title>
 </head>
 <body>
 
-<nav class="navbar">
+<nav id="navbar" class="navbar">
     <a href="/" class="navbar-brand">Home</a>
     <a href="/buscar_personaje" class="navbar-brand">Buscar Personaje</a>
-    <a href="/buscar_comic" class="navbar-brand">Buscar Comic</a>
+    <a href="/buscar_comics" class="navbar-brand">Buscar Comic</a>
 </nav>
+<div id="hamburguesa" class="hamburguesa desaparecer">
+    <div class="linea"></div>
+    <div class="linea"></div>
+    <div class="linea"></div>
+</div>
 
-<h1>Marvel Chars</h1>
-<h2>Informacion proveida por:
-    <a class="marvel" href="http://marvel.com">
-        Data provided by Marvel. © 2023 MARVEL
-    </a>
-</h2>
-{% block content %}{%  endblock %}
+<div class="container">
+    <h1>Marvel Chars</h1>
+    <h2>Informacion proveida por:
+        <a class="marvel" href="http://marvel.com">
+            Data provided by Marvel. © 2023 MARVEL
+        </a>
+    </h2>
+    {% block content %}{%  endblock %}
+
+</div>
 </body>
 </html>

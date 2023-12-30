@@ -9,32 +9,29 @@
 
 </head>
 <body>
-  <nav class="navbar">
-    <a href="/buscar_personaje" class="navbar-brand">Buscar Personaje</a>
-    <a href="/buscar_comic" class="navbar-brand">Buscar Comic</a>
-  </nav>
 
-  <h1>Marvel Chars</h1>
-  <h2>Informacion proveida por:
-    <a class="marvel" href="http://marvel.com">
-      <strong >{{api_data.attributionText}}</strong>
-    </a>
-  </h2>
+{% extends "base.html" %}
 
-  <div class="main">
+  {% block content %}
+  <div class="container">
+
+    <div class="main">
       {% for personaje in personajes %}
-    <div class="card">
-      <h3 class="name">{{personaje.name}}</h3>
+      <div class="card">
+        <h3 class="name">{{personaje.name}}</h3>
         <small>Id: {{personaje.id}}</small>
-      <p class="descripcion">
-        {{personaje.description | safe}}
-      </p>
-      <img class="thumbnail" src="{{personaje.thumbnail['path']}}.{{personaje.thumbnail['extension']}}" alt="{{personaje.name}}">
-    <p>
-      <strong>Comics disponibles: </strong> {{personaje.comics['available']}}
-    </p>
-    </div>
+        <p class="descripcion">
+          {{personaje.description | safe}}
+        </p>
+        <img class="thumbnail" src="{{personaje.thumbnail['path']}}.{{personaje.thumbnail['extension']}}" alt="{{personaje.name}}">
+        <p>
+          <strong>Comics disponibles: </strong> {{personaje.comics['available']}}
+        </p>
+      </div>
       {% endfor %}
+    </div>
+
   </div>
+  {%  endblock %}
 </body>
 </html>

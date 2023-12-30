@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from api_requests import get_data, obtener_personajes, buscar, personaje_id
+from api_requests import get_data, obtener_personajes, buscar, personaje_id, comics
 
 app = Flask(__name__)
 
@@ -41,11 +41,11 @@ async def personaje_id_ruta(id): # Cambia el nombre de la funcion para evitar co
         return f"Error: {e}"
 
 
-
-@app.route("/buscar_comic")
-def buscar_comic():
-    return render_template("buscar_comic.html")
-
+@app.route("/buscar_comics")
+async def comic_titulo():
+    titulo_comic = request.args.get("titulo")
+    resultado = await comics(titulo_comic)
+    return render_template("buscar_comics.html", resultado=resultado)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

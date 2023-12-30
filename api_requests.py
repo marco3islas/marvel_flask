@@ -35,7 +35,6 @@ async def get_data():
             async with session.get(url) as response:
                 if response.status == 200:
                     data = await response.json()
-                    print(f"Data retrived successfully: {data}")
                     return data
     except Exception as e:
         return f"Error{e}"
@@ -77,3 +76,18 @@ async def personaje_id(id):
                     return data
     except Exception as e:
         return  f"Error{e}"
+
+
+async def comics(titulo):
+    url = f"{URL_CONST}comics?titleStartsWith={titulo}&ts={ts}&apikey={public_key}&hash={hash_result}"
+
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url) as response:
+                if response.status == 200:
+                    data = await response.json()
+                    data = data['data']['results']
+                    # print(data)
+                    return data
+    except Exception as e:
+        return f"Error{e}"
