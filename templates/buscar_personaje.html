@@ -1,23 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
-    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
-    <title>Buscar Por Personaje</title>
-</head>
-<body>
 
 {% extends "base.html" %}
 
-<h1>Hola Personaje</h1>
-
 {% block content %}
-<div class="form_container">
+
+<div id="form_container" class="form_container">
+    <h1>Buscar Personaje</h1>
     <form class="form" method="get">
-        <label for="buscar_personaje">Buscar Personaje: </label>
         <input type="text" name="buscar_personaje" id="buscar_personaje" placeholder="Nombre del personaje">
-        <label for="numero_personajes">Numero</label>
         <input type="number" name="numero_personajes" id="numero_personajes" value="1" placeholder="Numero de personajes">
         <input type="submit" value="Buscar">
     </form>
@@ -38,7 +27,3 @@
     {% endif %}
 </div>
 {% endblock %}
-
-
-</body>
-</html>

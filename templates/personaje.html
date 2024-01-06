@@ -19,11 +19,13 @@
                 <p class="personaje_descripcion">Descripcion: {{item['description']}}</p>
             {% endif %}
     <p>Comics disponibles: {{item['comics']['available']}}</p>
-        {% if item['comics']['available'] > 0 %}
+        {% if item['comics']['available'] > 0 and item['comics']['available'] <= 8 %}
+            <h3>Comics de {{item['name']}}</h3>
+         {% elif item['comics']['available'] > 8 %}
             <h3>Algunos comics de {{item['name']}}</h3>
         {% endif %}
                 {% for comic in item['comics']['items'][:10] %}
-            <p>{{comic['name']}} - <small>{{comic['resourceURI']}}</small> </p>
+            <p>{{comic['name']}} - <small>{{comic[id]}}</small> </p>
     {% endfor %}
     {% endfor %}
 {% endblock %}

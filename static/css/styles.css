@@ -3,11 +3,13 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  background-color: rgb(14, 17, 23);
+  color: white;
 }
 
 .navbar {
 padding: 0;
-    background-color: #016FB9;
+    background-color: rgb(38 39 48);
     color: white;
     width: 100%;
     display: flex;
@@ -17,7 +19,7 @@ padding: 0;
 }
 
 h1, h2, h3 {
-    color: black;
+    color: white;
 }
 
 .navbar a {
@@ -28,11 +30,12 @@ transition: ease 0.2s;
 }
 
 .navbar a:hover {
-background-color: #45a2e1;
-color: white;
+background-color: #e62429;
 
 }
-
+.navbar a:active, .navbar a:focus {
+background-color: #e62429;
+}
 
 .main {
   display: grid;
@@ -43,7 +46,6 @@ color: white;
     padding: 20px;
 }
 .card {
-  background-color: #AFA98D;
   border-radius: 20px;
   height: inherit;
   padding: 15px;
@@ -54,10 +56,10 @@ color: white;
 }
 
 .card small {
-    color: black;
+    color: white;
 }
 .card h3  {
-    color: black;
+    color: white;
 }
 
 .back {
@@ -66,14 +68,14 @@ color: white;
     color: white;
     padding: 10px 15px;
     border: none;
-    border-radius: 3px;
+    border-radius: 0.5rem;
     cursor: pointer;
     width: 66px;
     margin: 10px 0;
 }
 
 .back:hover {
-    color: black;
+    color: white;
     background-color: #0a74db;
 }
 
@@ -91,7 +93,7 @@ color: white;
 
 .marvel {
   text-decoration: none;
-  color: #c30e0e;
+  color: #e62429;
 }
 
 @media only screen and (max-width: 800px){
@@ -110,9 +112,7 @@ color: white;
 
 form {
     padding: 8px;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: rgba(200,200,200,.05);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -164,7 +164,7 @@ input[type="submit"]:hover {
     }
 .linkPersonaje, .linkPersonaje h3 {
     text-decoration: none;
-    color: #000000;
+    color: white;
 }
 
 @media only screen and (max-width: 500px){
@@ -185,26 +185,16 @@ input[type="submit"]:hover {
 }
 
 .hamburguesa {
-    display: flex;
-    flex-direction: column;
-    height: 20px;
-    width: 20px;
-    justify-content: space-around;
     margin: 20px auto;
-}
-.hamburguesa .linea {
-    background-color: black;
-    width: 20px;
-    height: 2px;
-}
-
-.hamburguesa .linea:nth-last-child {
-    margin-bottom: 3px;
+    display: none;
+    width: 25px;
+    background: none;
+    border: none;
 }
 
-.hamburguesa:hover {
+.hamburguesaIcon {
+    width: 25px;
     cursor: pointer;
-    background: gray;
 }
 
 .aparecer {
@@ -217,10 +207,19 @@ input[type="submit"]:hover {
 
 .form_container {
     max-width: 320px;
-    background-color: white;
+    background-color: transparent;
     background-image: url('../images/11.jpg');
     background-size: cover;
 }
 .form_container h1, .form_container h3 {
     text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+    .navbar {
+        display: none;
+    }
+    .hamburguesa {
+        display: block;
+    }
 }

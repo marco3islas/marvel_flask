@@ -1,48 +1,38 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
+  // Selecciona los elementos
+  const back = document.getElementById("back");
+  const hamburguesa = document.getElementById("hamburguesa");
+  const navbar = document.getElementById("myNavbar");
+  const form_container = document.getElementById("form_container");
 
-    let back = document.getElementById("back");
+  // Asigna los roles ARIA directamente en el HTML
+  navbar.setAttribute("role", "navigation");
+  hamburguesa.setAttribute("role", "button");
 
-    back.addEventListener("click", ()=> {
-            window.history.back();
-    });
 
-    let hamburguesa = document.getElementById("hamburguesa");
+  // Agrega los event listeners
+  if(back) {
+      back.addEventListener("click", () => {
+        window.history.back();
+      });
+  }
 
-    const navbar = document.getElementById("navbar");
+// Fucion cambiar estilo
 
-    function menu(){
-        if(window.innerWidth < 500){
-            navbar.classList.add("desaparecer")
-            hamburguesa.classList.remove("desaparecer")
-            hamburguesa.classList.add("aparecer")
-        } else {
-            navbar.classList.remove("desaparecer")
-            navbar.classList.add("aparecer")
-            hamburguesa.classList.add("desaparecer")
-        }
-        // Agregar atributo role
-      navbar.setAttribute("role", "navigation");
-      hamburguesa.setAttribute("role", "button");
-
+let aparecerDesaparecer = () => {
+    if(navbar.style.display === "flex") {
+        return "none";
+    } else {
+        return "flex";
     }
+}
 
-    hamburguesa.addEventListener("click", menu);
 
-    window.addEventListener("resize", menu);
-    menu();
+  // Función para manejar la apertura/cierre del menú
 
-    document.addEventListener("DOMContentLoaded", function() {
-        let images = [
-            'images/11.jpg',
-            'images/12.jpg',
-            'images/13.jpg',
-            'images/14.jpg',
-        ]
+hamburguesa.addEventListener("click", () => {
+    navbar.style.display = aparecerDesaparecer();
+});
 
-        let form_container = document.getElementById("form_container");
-        let imagenAleatoria = images[Math.floor(Math.random() * images.length)];
-
-        form_container.style.backgroundImage = `url(${imagenAleatoria})`;
-    })
 
 });

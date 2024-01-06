@@ -47,5 +47,11 @@ async def comic_titulo():
     resultado = await comics(titulo_comic)
     return render_template("buscar_comics.html", resultado=resultado)
 
+
+@app.route("/comic")
+def comic():
+    return render_template("comic.html")
+
+
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5500)

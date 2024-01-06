@@ -2,21 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
-    <title>Title</title>
+    <meta name="viewport" id="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+    <title>Marvel Comics on Flask</title>
 </head>
 <body>
 
-<nav id="navbar" class="navbar">
-    <a href="/" class="navbar-brand">Home</a>
-    <a href="/buscar_personaje" class="navbar-brand">Buscar Personaje</a>
-    <a href="/buscar_comics" class="navbar-brand">Buscar Comic</a>
+<nav id="myNavbar" class="navbar">
+    <a href="/" class="navbarLink">Home</a>
+    <a href="/buscar_personaje" class="navbarLink">Buscar Personaje</a>
+    <a href="/buscar_comics" class="navbarLink">Buscar Comic</a>
 </nav>
-<div id="hamburguesa" class="hamburguesa desaparecer">
-    <div class="linea"></div>
-    <div class="linea"></div>
-    <div class="linea"></div>
-</div>
+<button id="hamburguesa" class="hamburguesa">
+    <img class="hamburguesaIcon" src="{{ url_for('static', filename='images/hamburguesaIcon.png')}}">
+</button>
 
 <div class="container">
     <h1>Marvel Chars</h1>
@@ -28,5 +27,6 @@
     {% block content %}{%  endblock %}
 
 </div>
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </body>
 </html>
