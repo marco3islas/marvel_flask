@@ -1,5 +1,5 @@
 body {
-  font-family: Helvetica;
+  font-family: 'Salsa', Helvetica;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -22,19 +22,51 @@ h1, h2, h3 {
     color: white;
 }
 
-.navbar a {
-padding: 20px;
-text-decoration: none;
-color: white;
-transition: ease 0.2s;
+.btn {
+  text-transform: uppercase;
+  text-decoration: none;
+	background-color: rgb(38, 39, 48);
+  font-weight: 600;
+	letter-spacing: 4px;
+	padding: 18px 22px;
+	border-top: 0 ;
+	border-right: 0 ;
+	border-radius: 12px;
+	margin-right: 50px;
+	cursor: pointer;
+	overflow: hidden;
+	transition: 0.3s;
+}
+.btn-green {
+	color: rgb(102, 255, 102);
+	border-bottom:1px solid rgb(102, 255, 102);
+	border-left:1px solid rgb(102, 255, 102);
 }
 
-.navbar a:hover {
-background-color: #e62429;
-
+.btn-green:hover {
+	color: black;
+	background-image: linear-gradient(rgb(102, 255, 102), rgba(102,255,102,1.1));
+	filter: drop-shadow(0 0 15px rgb(102, 255, 102))
 }
-.navbar a:active, .navbar a:focus {
-background-color: #e62429;
+.btn-pink {
+	color: rgb(255, 102, 204);
+	border-bottom:1px solid rgb(255, 102, 204);
+	border-left:1px solid rgb(255, 102, 204);
+}
+.btn-pink:hover {
+	color: black;
+	background-image: linear-gradient(rgb(255, 102, 204), rgba(255,102,204,1.1));
+	filter: drop-shadow(0 0 25px rgb(255, 102, 204))
+}
+.btn-blue {
+	color: rgb(51, 204, 255);
+	border-bottom:1px solid rgb(51, 204, 255);
+	border-left:1px solid rgb(51, 204, 255);
+}
+.btn-blue:hover {
+	color: black;
+	background-image: radial-gradient(rgb(51, 204, 255), rgba(51, 204, 255,1.1));
+	filter: drop-shadow(0 0 2px rgb(51, 204, 255));
 }
 
 .main {
@@ -62,22 +94,6 @@ background-color: #e62429;
     color: white;
 }
 
-.back {
-    background-color: #016FB9;
-    text-transform: capitalize;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    width: 66px;
-    margin: 10px 0;
-}
-
-.back:hover {
-    color: white;
-    background-color: #0a74db;
-}
 
 .name {
   max-width: 350px;
@@ -121,10 +137,13 @@ form {
 input[type="text"], input[type="number"] {
     width: 80%;
     padding: 5px;
-    border: 1px solid gray;
+    border: 3px inset rgb(51, 204, 255);
     border-radius: 3px;
+    background-color: rgb(14, 17, 23);
     margin: 10px 5px;
     font-size: 18px;
+    color: rgb(51, 204, 255);
+    font-weight: bold;
 }
 
 input[type='number']{
@@ -149,19 +168,6 @@ input[type='number']{
     border-radius: 12px;
 }
 
-input[type='submit']{
-    background-color: #4caF50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 18px;
-    width: 80%;
-}
-input[type="submit"]:hover {
-        background-color: #45a049;
-    }
 .linkPersonaje, .linkPersonaje h3 {
     text-decoration: none;
     color: white;
@@ -203,6 +209,14 @@ input[type="submit"]:hover {
 
 .desaparecer {
     display: none;
+}
+
+.btnRegresar, .btnInput{
+  margin: 0;
+}
+.btnRegresar {
+  width: 243px;
+  margin-left: 40px;
 }
 
 .form_container {
