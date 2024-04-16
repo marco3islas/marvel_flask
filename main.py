@@ -1,14 +1,17 @@
 from flask import Flask, render_template, request
 from api_requests import get_data, obtener_personajes, buscar, personaje_id, comics
+from datetime import date
 
 app = Flask(__name__)
 
 app = Flask(__name__, static_folder='static')
 app.template_folder = "templates"
 
+hoy = date.today()
 
 @app.route("/")
 async def home():
+    year = hoy.strftime("%Y")
     # llamar a la funcion para obtener datos de la api_requests
     try:
         api_data1 = await get_data()
@@ -23,7 +26,7 @@ async def home():
 # debido a que el backend usa una funcion
 # async entonces la peticion que se hace
 # aqui en el main tambien debe funcionar
-# con un asyn await
+# con un async await
 @app.route("/buscar_personaje")
 async def buscar_personaje(): # Cambiar la funcion a async def
     nombre_personaje = request.args.get("buscar_personaje")
@@ -48,9 +51,13 @@ async def comic_titulo():
     return render_template("buscar_comics.html", resultado=resultado)
 
 
-@app.route("/comic")
-def comic():
-    return render_template("comic.html")
+@app.route("/comic/<int:comicId>", endpoint="comic_id")
+async def comic_id(comicId):
+    try:
+        data = await comic_id(comicId)
+        return render_template("comic.html", data=data)
+    except Exception as e:
+        return f"Error: {e}"
 
 
 if __name__ == "__main__":
