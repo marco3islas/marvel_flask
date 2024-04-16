@@ -22,7 +22,7 @@ async def home():
                                api_data=api_data1, personajes=personajes)
     except Exception as e:
         print(f"Error: {e}")
-        return render_template("error.html", error_message=str(e))
+        return render_template("error.html", error_message=str(e), year=year)
 # debido a que el backend usa una funcion
 # async entonces la peticion que se hace
 # aqui en el main tambien debe funcionar
