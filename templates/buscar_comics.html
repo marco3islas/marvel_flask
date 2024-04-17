@@ -8,20 +8,22 @@
         <form method="get">
             <input type="text" name="titulo" id="titulo" placeholder="Ingresa el titulo">
             <input type="number" name="numero_comics" id="numero_comics" value="1" placeholder="Numero de personajes">
-            <input type="submit" value="Buscar">
+            <input type="submit" class="btn btn-green btnInput" value="Buscar">
         </form>
+            <button id="back" class="btn btn-pink btnRegresar"> regresar </button>
     </div>
-    <div id="back" class="back"> regresar </div>
 
 
     <div class="main">
         {% if resultado %}
         {% for item in resultado %}
-        <div class="card">
-            <small>Id del comic: {{item.id}}</small>
-            <h3>{{item.name}}</h3>
-            <img src="{{item.thumbnail['path']}}.{{item.thumbnail['extension']}}" alt="Imagen de {{item.name}}" class="thumbnail">
-        </div>
+        <a class='linkPersonaje' href="{{ url_for("comic_id", comicId=item['id']) }}">
+            <div class="card">
+                <small>Id del comic: {{item.id}}</small>
+                <h3>{{item.name}}</h3>
+                <img src="{{item.thumbnail['path']}}.{{item.thumbnail['extension']}}" alt="Imagen de {{item.name}}" class="thumbnail">
+            </div>
+        </a>
         {% endfor %}
         {% endif %}
     </div>
