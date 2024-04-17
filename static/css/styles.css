@@ -176,11 +176,9 @@ input[type='number']{
 @media only screen and (max-width: 500px){
     .form {
         display: flex;
-        flex-wrap: wrap;
         flex-direction: column;
         text-align: left;
         justify-content: space-around;
-        align-items: start;
     }
 }
 
@@ -215,16 +213,10 @@ input[type='number']{
   margin: 0;
 }
 .btnRegresar {
-  width: 243px;
-  margin-left: 40px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.form_container {
-    max-width: 320px;
-    background-color: transparent;
-    background-image: url('../images/11.jpg');
-    background-size: cover;
-}
 .form_container h1, .form_container h3 {
     text-align: center;
 }
